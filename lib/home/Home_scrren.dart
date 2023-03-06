@@ -36,14 +36,15 @@ class _Home_scrrenState extends State<Home_scrren> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            InkWell(onTap: () {
+            InkWell(
+              onTap: () {
               setState(() {
                 i=0;
               });
             },
               child: Icon(
                 Icons.home,
-                color: Colors.white,
+                color: i==0 ? Colors.white : Colors.grey,
                 size: 30,
               ),
             ),
@@ -54,7 +55,7 @@ class _Home_scrrenState extends State<Home_scrren> {
             },
               child: Icon(
                 Icons.search,
-                color: Colors.white,
+                color: i==1 ? Colors.white : Colors.grey,
                 size: 30,
               ),
             ),

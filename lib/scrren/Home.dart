@@ -36,6 +36,19 @@ class _Home_State extends State<Home_> {
     "assets/image/home/s9.jpg",
     "assets/image/home/s10.jpg",
   ];
+  List imge = [
+    "assets/image/post_image/s0.jpg",
+    "assets/image/post_image/s1.jpeg",
+    "assets/image/post_image/s2.jpg",
+    "assets/image/post_image/s3.jpg",
+    "assets/image/post_image/s4.jpg",
+    "assets/image/post_image/s5.jpg",
+    "assets/image/post_image/s6.jpg",
+    "assets/image/post_image/s7.jpg",
+    "assets/image/post_image/s8.jpg",
+    "assets/image/post_image/s10.jpg",
+    "assets/image/post_image/s9.jpg",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -67,33 +80,41 @@ class _Home_State extends State<Home_> {
         height: double.infinity,
         width: double.infinity,
         color: Colors.black,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            //story
-            SizedBox(height: 5),
-            Container(
-              height: 110,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  border: BorderDirectional(
-                      bottom: BorderSide(color: Colors.white30))),
-              alignment: Alignment.center,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              //story
+              SizedBox(height: 5),
+              Container(
+                height: 110,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: BorderDirectional(
+                        bottom: BorderSide(color: Colors.white30))),
+                alignment: Alignment.center,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: story_imge
+                        .asMap()
+                        .entries
+                        .map((e) => Story(story_imge[e.key], name[e.key]))
+                        .toList(),
+                  ),
+                ),
+              ),
+              //POSt
+              Column(
                   children: story_imge
                       .asMap()
                       .entries
-                      .map((e) => Story(story_imge[e.key], name[e.key]))
-                      .toList(),
-                ),
-              ),
-            ),
-            //POSt
-            Post(story_imge[i],name[i]),
-          ],
+                      .map((e) =>
+                          Post(imge[e.key], name[e.key], imge[e.key]))
+                      .toList()),
+            ],
+          ),
         ),
       ),
     );
@@ -125,7 +146,7 @@ class _Home_State extends State<Home_> {
     );
   }
 
-  Widget Post(String Img, String Data) {
+  Widget Post(String Img, String Data, String img1) {
     return Stack(
       children: [
         Container(
@@ -136,32 +157,72 @@ class _Home_State extends State<Home_> {
           child: Container(
             width: double.infinity,
             height: 400,
-            color: Colors.white,
+            color: Colors.black,
+            child: Image.asset("$img1", fit: BoxFit.fill),
           ),
         ),
         Container(
-          height: 45,
-          width: 45,
-          margin: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+          height: 40,
+          width: 40,
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.red.shade900),
             shape: BoxShape.circle,
           ),
           alignment: Alignment.center,
           child: CircleAvatar(
-            radius: 17,
+            radius: 15,
             backgroundImage: AssetImage("$Img"),
           ),
         ),
         SizedBox(height: 10),
         Padding(
-          padding: const EdgeInsets.only(left: 70,top: 10),
+          padding: const EdgeInsets.only(left: 70, top: 10),
           child: Text(
             "$Data",
             style: TextStyle(color: Colors.white),
           ),
         ),
-        Icon(Icons.favorite_border_rounded,color: Colors.white,)
+        Padding(
+          padding: const EdgeInsets.only(top: 10,left: 470),
+          child: Icon(
+            Icons.more_vert,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 470),
+          child: Icon(
+            Icons.favorite_border_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 470, left: 55),
+          child: Icon(
+            Icons.mode_comment_outlined,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 470, left: 110),
+          child: Icon(
+            Icons.send,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 470, left: 470),
+          child: Icon(
+            Icons.bookmark,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
       ],
     );
   }
