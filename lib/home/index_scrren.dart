@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insta_app_index_stac/scrren/Home.dart';
-import 'package:insta_app_index_stac/scrren/Serch_scrren.dart';
+import 'package:insta_app_index_stac/scrrens/Home.dart';
+import 'package:insta_app_index_stac/scrrens/Serch_scrren.dart';
 
 class Home_scrren extends StatefulWidget {
   const Home_scrren({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class _Home_scrrenState extends State<Home_scrren> {
             },
               child: Icon(
                 Icons.home,
-                color: i==0 ? Colors.white : Colors.grey,
+                color: i==0 ? Colors.white : Colors.white12,
                 size: 30,
               ),
             ),
@@ -55,14 +55,21 @@ class _Home_scrrenState extends State<Home_scrren> {
             },
               child: Icon(
                 Icons.search,
-                color: i==1 ? Colors.white : Colors.grey,
+                color: i==1 ? Colors.white : Colors.white12,
                 size: 30,
               ),
             ),
-            Icon(
-              Icons.add_circle,
-              color: Colors.white,
-              size: 30,
+            InkWell(
+            onTap: (){
+              setState(() {
+                i=2;
+              });
+            },
+              child: Icon(
+                Icons.add_circle,
+                color: i==2 ?Colors.white : Colors.white12,
+                size: 30,
+              ),
             ),
             Icon(
               Icons.favorite,
