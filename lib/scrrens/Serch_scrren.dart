@@ -39,6 +39,7 @@ class _Serch_scrrenState extends State<Serch_scrren> {
             Padding(
               padding: const EdgeInsets.only(top: 30,left: 10,right: 10,bottom: 10),
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),

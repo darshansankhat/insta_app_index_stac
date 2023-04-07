@@ -11,7 +11,13 @@ class _Reels_scrrenState extends State<Reels_scrren> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("No Reels",style: TextStyle(fontSize: 30,color: Colors.red),),
+      body: Center(
+        child: Text(
+          "No Reels",
+          style: TextStyle(fontSize: 40, color: Colors.red),
+        ),
+      ),
+      backgroundColor: Colors.black,
     );
   }
 }

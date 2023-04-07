@@ -216,7 +216,7 @@ class _Home_State extends State<Home_> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 470, left: 470),
+          padding: const EdgeInsets.only(top: 470, left: 465),
           child: Icon(
             Icons.bookmark,
             color: Colors.white,
